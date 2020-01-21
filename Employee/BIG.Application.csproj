@@ -1,0 +1,876 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A9378A1D-318B-416C-BF65-BB006AE30416}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BIG.Present</RootNamespace>
+    <AssemblyName>BIG.Employee.Rayong.V1.0</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AForge, Version=2.2.5.0, Culture=neutral, PublicKeyToken=c1db6ff4eaa06aeb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\AForge.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Controls, Version=2.2.5.0, Culture=neutral, PublicKeyToken=a8ac264d1dc6b9d9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\AForge.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Imaging, Version=2.2.5.0, Culture=neutral, PublicKeyToken=ba8ddea9676ca48b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\AForge.Imaging.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Math, Version=2.2.5.0, Culture=neutral, PublicKeyToken=abba2e25397ee8c9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\AForge.Math.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video, Version=2.2.5.0, Culture=neutral, PublicKeyToken=cbfb6e07d173c401, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\AForge.Video.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video.DirectShow, Version=2.2.5.0, Culture=neutral, PublicKeyToken=61ea4348d43881b7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\AForge.Video.DirectShow.dll</HintPath>
+    </Reference>
+    <Reference Include="DirectShowLib-2005, Version=2.1.0.0, Culture=neutral, PublicKeyToken=67e7b740cdfc2d3f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\DirectShowLib-2005.dll</HintPath>
+    </Reference>
+    <Reference Include="libzkfpcsharp, Version=1.0.0.1, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\libzkfpcsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="MakarovDev.ExpandCollapsePanel">
+      <HintPath>dll\MakarovDev.ExpandCollapsePanel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Windows\assembly\GAC_MSIL\Microsoft.ReportViewer.Common\11.0.0.0__89845dcd8080cc91\Microsoft.ReportViewer.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Windows\assembly\GAC_MSIL\Microsoft.ReportViewer.WinForms\11.0.0.0__89845dcd8080cc91\Microsoft.ReportViewer.WinForms.DLL</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms.Ribbon35">
+      <HintPath>dll\System.Windows.Forms.Ribbon35.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WebCam_Capture, Version=1.0.2395.24959, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\WebCam_Capture.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AllEmployeeDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AllEmployeeDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BIG_DBDataSet.cs">
+      <DependentUpon>BIG_DBDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BIG_DBDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BIG_DBDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BitmapFormat.cs" />
+    <Compile Include="BusyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BusyForm.Designer.cs">
+      <DependentUpon>BusyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CameraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CameraForm.Designer.cs">
+      <DependentUpon>CameraForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CompanyInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CompanyInfoForm.Designer.cs">
+      <DependentUpon>CompanyInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmployeeForm.Designer.cs">
+      <DependentUpon>EmployeeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAddSite.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddSite.Designer.cs">
+      <DependentUpon>FormAddSite.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PersonalForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PersonalForm.Designer.cs">
+      <DependentUpon>PersonalForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ReportAllEmployeeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportAllEmployeeForm.Designer.cs">
+      <DependentUpon>ReportAllEmployeeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportEmployee.Designer.cs">
+      <DependentUpon>ReportEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Resource1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource1.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SplashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SplashScreen.Designer.cs">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestForm.Designer.cs">
+      <DependentUpon>TestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC\UserControl1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC\UserControl1.Designer.cs">
+      <DependentUpon>UserControl1.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AllEmployeeReport.rdlc" />
+    <EmbeddedResource Include="BusyForm.resx">
+      <DependentUpon>BusyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CameraForm.resx">
+      <DependentUpon>CameraForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CompanyInfoForm.resx">
+      <DependentUpon>CompanyInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmployeeDetailReport.rdlc" />
+    <EmbeddedResource Include="EmployeeForm.resx">
+      <DependentUpon>EmployeeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAddSite.resx">
+      <DependentUpon>FormAddSite.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PersonalForm.resx">
+      <DependentUpon>PersonalForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportAllEmployeeForm.resx">
+      <DependentUpon>ReportAllEmployeeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportEmployee.resx">
+      <DependentUpon>ReportEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource1.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SplashScreen.resx">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestForm.resx">
+      <DependentUpon>TestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC\UserControl1.resx">
+      <DependentUpon>UserControl1.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="AllEmployeeDS.xsc">
+      <DependentUpon>AllEmployeeDS.xsd</DependentUpon>
+    </None>
+    <None Include="AllEmployeeDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AllEmployeeDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="AllEmployeeDS.xss">
+      <DependentUpon>AllEmployeeDS.xsd</DependentUpon>
+    </None>
+    <None Include="App.config" />
+    <None Include="BIG_DBDataSet.xsc">
+      <DependentUpon>BIG_DBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="BIG_DBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BIG_DBDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BIG_DBDataSet.xss">
+      <DependentUpon>BIG_DBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BIG.BusinessLogic\BIG.BusinessLogic.csproj">
+      <Project>{69648107-31d9-4687-a26c-8b17c6f0f640}</Project>
+      <Name>BIG.BusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BIG.Common\BIG.Common.csproj">
+      <Project>{4f539027-636d-4048-9df7-8b96fbe40c10}</Project>
+      <Name>BIG.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BIG.DataService\BIG.DataService.csproj">
+      <Project>{080b0eba-0c7b-46f8-a929-699806c4c9d8}</Project>
+      <Name>BIG.DataService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BIG.Model\BIG.Model.csproj">
+      <Project>{7e263854-19a2-4a7c-a93b-a3413b93f00b}</Project>
+      <Name>BIG.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user-add-icon.png" />
+    <None Include="Resources\big_bg.png" />
+    <None Include="Resources\48_home.png" />
+    <None Include="Resources\48_man_woman.png" />
+    <None Include="Resources\48_search1.png" />
+    <None Include="Resources\48_save_1.jpg" />
+    <None Include="Resources\48_save_2.png" />
+    <None Include="Resources\48_close.png" />
+    <None Include="Resources\48_add.png" />
+    <None Include="Resources\48_load.png" />
+    <None Include="Resources\48_print.png" />
+    <None Include="Resources\48_logout.png" />
+    <None Include="Resources\big_employee.png" />
+    <Content Include="dll\AForge.Controls.dll" />
+    <Content Include="dll\AForge.dll" />
+    <Content Include="dll\AForge.Imaging.dll" />
+    <Content Include="dll\AForge.Math.dll" />
+    <Content Include="dll\AForge.Video.DirectShow.dll" />
+    <Content Include="dll\AForge.Video.dll" />
+    <Content Include="dll\DirectShowLib-2005.dll" />
+    <Content Include="dll\libzkfpcsharp.dll" />
+    <Content Include="dll\Neurotec.Biometrics.Nffv.dll" />
+    <Content Include="dll\Nffv.dll" />
+    <Content Include="dll\NffvJavaNative.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\big_logo.png" />
+    <Content Include="dll\WebCam_Capture.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\big_main_emp.jpg" />
+    <Content Include="Resources\ee.jpg" />
+    <Content Include="Resources\emploee.png" />
+    <Content Include="Resources\eval.png" />
+    <Content Include="Resources\exit.png" />
+    <Content Include="Resources\exit1.png" />
+    <None Include="Resources\finger_icon.jpg" />
+    <None Include="Resources\finger_icon1.jpg" />
+    <None Include="Resources\finger_icon2.jpg" />
+    <None Include="Resources\icon24_edit_male_user.png" />
+    <None Include="Resources\icon\24-device-camera.png" />
+    <None Include="Resources\icon\38-device-camera.png" />
+    <None Include="Resources\icon\camera.png" />
+    <Content Include="Resources\ico\3d bar chart.ico" />
+    <Content Include="Resources\ico\abort.ico" />
+    <Content Include="Resources\ico\about.ico" />
+    <Content Include="Resources\ico\accounting.ico" />
+    <Content Include="Resources\ico\add.ico" />
+    <Content Include="Resources\ico\address book.ico" />
+    <Content Include="Resources\ico\alarm clock.ico" />
+    <Content Include="Resources\ico\alarm.ico" />
+    <Content Include="Resources\ico\alert.ico" />
+    <Content Include="Resources\ico\alien.ico" />
+    <Content Include="Resources\ico\anchor.ico" />
+    <Content Include="Resources\ico\application.ico" />
+    <Content Include="Resources\ico\apply.ico" />
+    <Content Include="Resources\ico\back.ico" />
+    <Content Include="Resources\ico\bad mark.ico" />
+    <Content Include="Resources\ico\bee.ico" />
+    <Content Include="Resources\ico\big.ico" />
+    <Content Include="Resources\ico\black bookmark.ico" />
+    <Content Include="Resources\ico\black pin.ico" />
+    <Content Include="Resources\ico\black tag.ico" />
+    <Content Include="Resources\ico\blog.ico" />
+    <Content Include="Resources\ico\blue bookmark.ico" />
+    <Content Include="Resources\ico\blue key.ico" />
+    <Content Include="Resources\ico\blue pin.ico" />
+    <Content Include="Resources\ico\blue tag.ico" />
+    <Content Include="Resources\ico\bomb.ico" />
+    <Content Include="Resources\ico\bookmark.ico" />
+    <Content Include="Resources\ico\boss.ico" />
+    <Content Include="Resources\ico\bottom.ico" />
+    <Content Include="Resources\ico\briefcase.ico" />
+    <Content Include="Resources\ico\brush.ico" />
+    <Content Include="Resources\ico\bubble.ico" />
+    <Content Include="Resources\ico\buy.ico" />
+    <Content Include="Resources\ico\calculator.ico" />
+    <Content Include="Resources\ico\calendar.ico" />
+    <Content Include="Resources\ico\car key.ico" />
+    <Content Include="Resources\ico\CD.ico" />
+    <Content Include="Resources\ico\clipboard.ico" />
+    <Content Include="Resources\ico\clock.ico" />
+    <Content Include="Resources\ico\close.ico" />
+    <Content Include="Resources\ico\coin.ico" />
+    <Content Include="Resources\ico\comment.ico" />
+    <Content Include="Resources\ico\company.ico" />
+    <Content Include="Resources\ico\compass.ico" />
+    <Content Include="Resources\ico\component.ico" />
+    <Content Include="Resources\ico\computer.ico" />
+    <Content Include="Resources\ico\copy.ico" />
+    <Content Include="Resources\ico\create.ico" />
+    <Content Include="Resources\ico\cut.ico" />
+    <Content Include="Resources\ico\danger.ico" />
+    <Content Include="Resources\ico\database.ico" />
+    <Content Include="Resources\ico\delete.ico" />
+    <Content Include="Resources\ico\delivery.ico" />
+    <Content Include="Resources\ico\diagram.ico" />
+    <Content Include="Resources\ico\dial.ico" />
+    <Content Include="Resources\ico\disaster.ico" />
+    <Content Include="Resources\ico\display.ico" />
+    <Content Include="Resources\ico\dollar.ico" />
+    <Content Include="Resources\ico\door.ico" />
+    <Content Include="Resources\ico\down.ico" />
+    <Content Include="Resources\ico\download.ico" />
+    <Content Include="Resources\ico\downloads folder.ico" />
+    <Content Include="Resources\ico\e-mail.ico" />
+    <Content Include="Resources\ico\earth.ico" />
+    <Content Include="Resources\ico\eject.ico" />
+    <Content Include="Resources\ico\equipment.ico" />
+    <Content Include="Resources\ico\erase.ico" />
+    <Content Include="Resources\ico\error.ico" />
+    <Content Include="Resources\ico\euro.ico" />
+    <Content Include="Resources\ico\exit.ico" />
+    <Content Include="Resources\ico\expand.ico" />
+    <Content Include="Resources\ico\eye.ico" />
+    <Content Include="Resources\ico\fall.ico" />
+    <Content Include="Resources\ico\fast-forward.ico" />
+    <Content Include="Resources\ico\favourites.ico" />
+    <Content Include="Resources\ico\female symbol.ico" />
+    <Content Include="Resources\ico\female.ico" />
+    <Content Include="Resources\ico\film.ico" />
+    <Content Include="Resources\ico\filter.ico" />
+    <Content Include="Resources\ico\find.ico" />
+    <Content Include="Resources\ico\first record.ico" />
+    <Content Include="Resources\ico\first.ico" />
+    <Content Include="Resources\ico\flag.ico" />
+    <Content Include="Resources\ico\flash drive.ico" />
+    <Content Include="Resources\ico\folder.ico" />
+    <Content Include="Resources\ico\forbidden.ico" />
+    <Content Include="Resources\ico\forward.ico" />
+    <Content Include="Resources\ico\free bsd.ico" />
+    <Content Include="Resources\ico\gift.ico" />
+    <Content Include="Resources\ico\globe.ico" />
+    <Content Include="Resources\ico\go back.ico" />
+    <Content Include="Resources\ico\go forward.ico" />
+    <Content Include="Resources\ico\go.ico" />
+    <Content Include="Resources\ico\good mark.ico" />
+    <Content Include="Resources\ico\green bookmark.ico" />
+    <Content Include="Resources\ico\green pin.ico" />
+    <Content Include="Resources\ico\green tag.ico" />
+    <Content Include="Resources\ico\hard disk.ico" />
+    <Content Include="Resources\ico\heart.ico" />
+    <Content Include="Resources\ico\help book 3d.ico" />
+    <Content Include="Resources\ico\help book.ico" />
+    <Content Include="Resources\ico\help.ico" />
+    <Content Include="Resources\ico\help1.ico" />
+    <Content Include="Resources\ico\hint.ico" />
+    <Content Include="Resources\ico\history.ico" />
+    <Content Include="Resources\ico\home.ico" />
+    <Content Include="Resources\ico\hourglass.ico" />
+    <Content Include="Resources\ico\how-to.ico" />
+    <Content Include="Resources\ico\hungup.ico" />
+    <Content Include="Resources\ico\In-yang.ico" />
+    <Content Include="Resources\ico\info.ico" />
+    <Content Include="Resources\ico\Iphone.ico" />
+    <Content Include="Resources\ico\key.ico" />
+    <Content Include="Resources\ico\last recor.ico" />
+    <Content Include="Resources\ico\last.ico" />
+    <Content Include="Resources\ico\left-right.ico" />
+    <Content Include="Resources\ico\letter.ico" />
+    <Content Include="Resources\ico\lightning.ico" />
+    <Content Include="Resources\ico\liner.ico" />
+    <Content Include="Resources\ico\linux.ico" />
+    <Content Include="Resources\ico\list.ico" />
+    <Content Include="Resources\ico\load.ico" />
+    <Content Include="Resources\ico\lock.ico" />
+    <Content Include="Resources\ico\low rating.ico" />
+    <Content Include="Resources\ico\magic wand.ico" />
+    <Content Include="Resources\ico\mail.ico" />
+    <Content Include="Resources\ico\male symbol.ico" />
+    <Content Include="Resources\ico\male.ico" />
+    <Content Include="Resources\ico\medium rating.ico" />
+    <Content Include="Resources\ico\message.ico" />
+    <Content Include="Resources\ico\mobile-phone.ico" />
+    <Content Include="Resources\ico\modify.ico" />
+    <Content Include="Resources\ico\move.ico" />
+    <Content Include="Resources\ico\movie.ico" />
+    <Content Include="Resources\ico\music.ico" />
+    <Content Include="Resources\ico\mute.ico" />
+    <Content Include="Resources\ico\network connection.ico" />
+    <Content Include="Resources\ico\new document.ico" />
+    <Content Include="Resources\ico\new.ico" />
+    <Content Include="Resources\ico\next track.ico" />
+    <Content Include="Resources\ico\next.ico" />
+    <Content Include="Resources\ico\no-entry.ico" />
+    <Content Include="Resources\ico\no.ico" />
+    <Content Include="Resources\ico\notes.ico" />
+    <Content Include="Resources\ico\OK.ico" />
+    <Content Include="Resources\ico\paste.ico" />
+    <Content Include="Resources\ico\pause.ico" />
+    <Content Include="Resources\ico\people.ico" />
+    <Content Include="Resources\ico\percent.ico" />
+    <Content Include="Resources\ico\person.ico" />
+    <Content Include="Resources\ico\phone number.ico" />
+    <Content Include="Resources\ico\phone.ico" />
+    <Content Include="Resources\ico\picture.ico" />
+    <Content Include="Resources\ico\pie chart.ico" />
+    <Content Include="Resources\ico\pinion.ico" />
+    <Content Include="Resources\ico\play-music.ico" />
+    <Content Include="Resources\ico\play.ico" />
+    <Content Include="Resources\ico\playback.ico" />
+    <Content Include="Resources\ico\previous record.ico" />
+    <Content Include="Resources\ico\previous.ico" />
+    <Content Include="Resources\ico\print.ico" />
+    <Content Include="Resources\ico\problem.ico" />
+    <Content Include="Resources\ico\question.ico" />
+    <Content Include="Resources\ico\radiation.ico" />
+    <Content Include="Resources\ico\raise.ico" />
+    <Content Include="Resources\ico\record.ico" />
+    <Content Include="Resources\ico\red bookmark.ico" />
+    <Content Include="Resources\ico\red mark.ico" />
+    <Content Include="Resources\ico\red pin.ico" />
+    <Content Include="Resources\ico\red star.ico" />
+    <Content Include="Resources\ico\red tag.ico" />
+    <Content Include="Resources\ico\redo.ico" />
+    <Content Include="Resources\ico\refresh.ico" />
+    <Content Include="Resources\ico\remove.ico" />
+    <Content Include="Resources\ico\repair.ico" />
+    <Content Include="Resources\ico\report.ico" />
+    <Content Include="Resources\ico\retort.ico" />
+    <Content Include="Resources\ico\rewind.ico" />
+    <Content Include="Resources\ico\sad.ico" />
+    <Content Include="Resources\ico\save.ico" />
+    <Content Include="Resources\ico\schedule.ico" />
+    <Content Include="Resources\ico\script.ico" />
+    <Content Include="Resources\ico\search.ico" />
+    <Content Include="Resources\ico\shield.ico" />
+    <Content Include="Resources\ico\shopping cart.ico" />
+    <Content Include="Resources\ico\silence.ico" />
+    <Content Include="Resources\ico\smile.ico" />
+    <Content Include="Resources\ico\sound.ico" />
+    <Content Include="Resources\ico\stock graph.ico" />
+    <Content Include="Resources\ico\stop sign.ico" />
+    <Content Include="Resources\ico\stop.ico" />
+    <Content Include="Resources\ico\stopwatch.ico" />
+    <Content Include="Resources\ico\sum.ico" />
+    <Content Include="Resources\ico\sync.ico" />
+    <Content Include="Resources\ico\table.ico" />
+    <Content Include="Resources\ico\target.ico" />
+    <Content Include="Resources\ico\taxi.ico" />
+    <Content Include="Resources\ico\terminate.ico" />
+    <Content Include="Resources\ico\text preview.ico" />
+    <Content Include="Resources\ico\text.ico" />
+    <Content Include="Resources\ico\thumbs down.ico" />
+    <Content Include="Resources\ico\thumbs up.ico" />
+    <Content Include="Resources\ico\toolbox.ico" />
+    <Content Include="Resources\ico\top.ico" />
+    <Content Include="Resources\ico\trackback.ico" />
+    <Content Include="Resources\ico\trash.ico" />
+    <Content Include="Resources\ico\tune.ico" />
+    <Content Include="Resources\ico\turn off.ico" />
+    <Content Include="Resources\ico\twitter.ico" />
+    <Content Include="Resources\ico\undo.ico" />
+    <Content Include="Resources\ico\unlock.ico" />
+    <Content Include="Resources\ico\up-down.ico" />
+    <Content Include="Resources\ico\up.ico" />
+    <Content Include="Resources\ico\update.ico" />
+    <Content Include="Resources\ico\upload.ico" />
+    <Content Include="Resources\ico\user group.ico" />
+    <Content Include="Resources\ico\view.ico" />
+    <Content Include="Resources\ico\volume.ico" />
+    <Content Include="Resources\ico\wallet.ico" />
+    <Content Include="Resources\ico\warning.ico" />
+    <Content Include="Resources\ico\wrench.ico" />
+    <Content Include="Resources\ico\yellow bookmark.ico" />
+    <Content Include="Resources\ico\yellow pin.ico" />
+    <Content Include="Resources\ico\yellow tag.ico" />
+    <Content Include="Resources\ico\yes.ico" />
+    <Content Include="Resources\ico\zoom.ico" />
+    <None Include="Resources\idcard_template.jpg" />
+    <Content Include="Resources\lock_1.png" />
+    <Content Include="Resources\lock_2.png" />
+    <Content Include="Resources\lock_3.png" />
+    <Content Include="Resources\login_icon.png" />
+    <Content Include="Resources\login_icon_png.png" />
+    <None Include="Resources\logory1.jpg" />
+    <Content Include="Resources\network.png" />
+    <Content Include="Resources\people.png" />
+    <Content Include="Resources\personal.png" />
+    <None Include="Resources\pid_img.png" />
+    <None Include="Resources\pid_img1.png" />
+    <None Include="Resources\pid_icon.png" />
+    <None Include="Resources\pid_icon1.png" />
+    <Content Include="Resources\ppl.png" />
+    <Content Include="Resources\restart.png" />
+    <Content Include="Resources\search_.png" />
+    <Content Include="Resources\search_1.png" />
+    <Content Include="Resources\setting.png" />
+    <Content Include="Resources\setting_1.png" />
+    <Content Include="Resources\skill.png" />
+    <None Include="Resources\User group.png" />
+    <None Include="Resources\bg.jpg" />
+    <Content Include="Resources\BIG New LOGO 10-3-2016 บางบัวทอง.png" />
+    <None Include="Resources\Flow-HRMI.gif" />
+    <Content Include="Resources\icon\3d bar chart.png" />
+    <Content Include="Resources\icon\Abort.png" />
+    <Content Include="Resources\icon\About.png" />
+    <Content Include="Resources\icon\Accounting.png" />
+    <Content Include="Resources\icon\Add.png" />
+    <Content Include="Resources\icon\Address book.png" />
+    <Content Include="Resources\icon\Alarm clock.png" />
+    <Content Include="Resources\icon\Alarm.png" />
+    <Content Include="Resources\icon\Alert.png" />
+    <Content Include="Resources\icon\Alien.png" />
+    <Content Include="Resources\icon\Anchor.png" />
+    <Content Include="Resources\icon\Application.png" />
+    <Content Include="Resources\icon\Apply.png" />
+    <Content Include="Resources\icon\Back.png" />
+    <Content Include="Resources\icon\Bad mark.png" />
+    <Content Include="Resources\icon\Bee.png" />
+    <Content Include="Resources\icon\Black bookmark.png" />
+    <Content Include="Resources\icon\Black pin.png" />
+    <Content Include="Resources\icon\Black tag.png" />
+    <Content Include="Resources\icon\Blog.png" />
+    <Content Include="Resources\icon\Blue bookmark.png" />
+    <Content Include="Resources\icon\Blue key.png" />
+    <Content Include="Resources\icon\Blue pin.png" />
+    <Content Include="Resources\icon\Blue tag.png" />
+    <Content Include="Resources\icon\Bomb.png" />
+    <Content Include="Resources\icon\Bookmark.png" />
+    <Content Include="Resources\icon\Boss.png" />
+    <Content Include="Resources\icon\Bottom.png" />
+    <Content Include="Resources\icon\Briefcase.png" />
+    <Content Include="Resources\icon\Brush.png" />
+    <Content Include="Resources\icon\Bubble.png" />
+    <Content Include="Resources\icon\Buy.png" />
+    <Content Include="Resources\icon\Calculator.png" />
+    <Content Include="Resources\icon\Calendar.png" />
+    <Content Include="Resources\icon\Car key.png" />
+    <Content Include="Resources\icon\CD.png" />
+    <Content Include="Resources\icon\Clipboard.png" />
+    <Content Include="Resources\icon\Clock.png" />
+    <Content Include="Resources\icon\Close.png" />
+    <Content Include="Resources\icon\Coin.png" />
+    <Content Include="Resources\icon\Comment.png" />
+    <Content Include="Resources\icon\Company.png" />
+    <Content Include="Resources\icon\Compass.png" />
+    <Content Include="Resources\icon\Component.png" />
+    <Content Include="Resources\icon\Computer.png" />
+    <Content Include="Resources\icon\Copy.png" />
+    <Content Include="Resources\icon\Create.png" />
+    <Content Include="Resources\icon\Cut.png" />
+    <Content Include="Resources\icon\Danger.png" />
+    <Content Include="Resources\icon\Database.png" />
+    <Content Include="Resources\icon\Delete.png" />
+    <Content Include="Resources\icon\Delivery.png" />
+    <Content Include="Resources\icon\Diagram.png" />
+    <Content Include="Resources\icon\Dial.png" />
+    <Content Include="Resources\icon\Disaster.png" />
+    <Content Include="Resources\icon\Display.png" />
+    <Content Include="Resources\icon\Dollar.png" />
+    <Content Include="Resources\icon\Door.png" />
+    <Content Include="Resources\icon\Down.png" />
+    <Content Include="Resources\icon\Download.png" />
+    <Content Include="Resources\icon\Downloads folder.png" />
+    <Content Include="Resources\icon\E-mail.png" />
+    <Content Include="Resources\icon\Earth.png" />
+    <Content Include="Resources\icon\Eject.png" />
+    <Content Include="Resources\icon\Equipment.png" />
+    <Content Include="Resources\icon\Erase.png" />
+    <Content Include="Resources\icon\Error.png" />
+    <Content Include="Resources\icon\Euro.png" />
+    <Content Include="Resources\icon\Exit.png" />
+    <Content Include="Resources\icon\Expand.png" />
+    <Content Include="Resources\icon\Eye.png" />
+    <Content Include="Resources\icon\Fall.png" />
+    <Content Include="Resources\icon\Fast-forward.png" />
+    <Content Include="Resources\icon\Favourites.png" />
+    <Content Include="Resources\icon\Female symbol.png" />
+    <Content Include="Resources\icon\female.ico" />
+    <Content Include="Resources\icon\Female.png" />
+    <Content Include="Resources\icon\Film.png" />
+    <Content Include="Resources\icon\Filter.png" />
+    <Content Include="Resources\icon\Find.png" />
+    <Content Include="Resources\icon\First record.png" />
+    <Content Include="Resources\icon\First.png" />
+    <Content Include="Resources\icon\Flag.png" />
+    <Content Include="Resources\icon\Flash drive.png" />
+    <Content Include="Resources\icon\Folder.png" />
+    <Content Include="Resources\icon\Forbidden.png" />
+    <Content Include="Resources\icon\Forward.png" />
+    <Content Include="Resources\icon\Free bsd.png" />
+    <Content Include="Resources\icon\Gift.png" />
+    <Content Include="Resources\icon\Globe.png" />
+    <Content Include="Resources\icon\Go back.png" />
+    <Content Include="Resources\icon\Go forward.png" />
+    <Content Include="Resources\icon\Go.png" />
+    <Content Include="Resources\icon\Good mark.png" />
+    <Content Include="Resources\icon\Green bookmark.png" />
+    <Content Include="Resources\icon\Green pin.png" />
+    <Content Include="Resources\icon\Green tag.png" />
+    <Content Include="Resources\icon\Hard disk.png" />
+    <Content Include="Resources\icon\Heart.png" />
+    <Content Include="Resources\icon\Help book 3d.png" />
+    <Content Include="Resources\icon\Help book.png" />
+    <Content Include="Resources\icon\Help.png" />
+    <Content Include="Resources\icon\Hint.png" />
+    <Content Include="Resources\icon\History.png" />
+    <Content Include="Resources\icon\Home.png" />
+    <Content Include="Resources\icon\Hourglass.png" />
+    <Content Include="Resources\icon\How-to.png" />
+    <Content Include="Resources\icon\Hungup.png" />
+    <Content Include="Resources\icon\In-yang.png" />
+    <Content Include="Resources\icon\Info.png" />
+    <Content Include="Resources\icon\Iphone.png" />
+    <Content Include="Resources\icon\Key.png" />
+    <Content Include="Resources\icon\Last recor.png" />
+    <Content Include="Resources\icon\Last.png" />
+    <Content Include="Resources\icon\Left-right.png" />
+    <Content Include="Resources\icon\Letter.png" />
+    <Content Include="Resources\icon\Lightning.png" />
+    <Content Include="Resources\icon\Liner.png" />
+    <Content Include="Resources\icon\Linux.png" />
+    <Content Include="Resources\icon\List.png" />
+    <Content Include="Resources\icon\Load.png" />
+    <Content Include="Resources\icon\Lock.png" />
+    <Content Include="Resources\icon\Low rating.png" />
+    <Content Include="Resources\icon\Magic wand.png" />
+    <Content Include="Resources\icon\Mail.png" />
+    <Content Include="Resources\icon\Male symbol.png" />
+    <Content Include="Resources\icon\Male.png" />
+    <Content Include="Resources\icon\Medium rating.png" />
+    <Content Include="Resources\icon\Message.png" />
+    <Content Include="Resources\icon\Mobile-phone.png" />
+    <Content Include="Resources\icon\Modify.png" />
+    <Content Include="Resources\icon\Move.png" />
+    <Content Include="Resources\icon\Movie.png" />
+    <Content Include="Resources\icon\Music.png" />
+    <Content Include="Resources\icon\Mute.png" />
+    <Content Include="Resources\icon\Network connection.png" />
+    <Content Include="Resources\icon\New document.png" />
+    <Content Include="Resources\icon\New.png" />
+    <Content Include="Resources\icon\Next track.png" />
+    <Content Include="Resources\icon\Next.png" />
+    <Content Include="Resources\icon\No-entry.png" />
+    <Content Include="Resources\icon\No.png" />
+    <Content Include="Resources\icon\Notes.png" />
+    <Content Include="Resources\icon\OK.png" />
+    <Content Include="Resources\icon\Paste.png" />
+    <Content Include="Resources\icon\Pause.png" />
+    <Content Include="Resources\icon\People.png" />
+    <Content Include="Resources\icon\Percent.png" />
+    <Content Include="Resources\icon\Person.png" />
+    <Content Include="Resources\icon\Phone number.png" />
+    <Content Include="Resources\icon\Phone.png" />
+    <Content Include="Resources\icon\Picture.png" />
+    <Content Include="Resources\icon\Pie chart.png" />
+    <Content Include="Resources\icon\Pinion.png" />
+    <Content Include="Resources\icon\Play-music.png" />
+    <Content Include="Resources\icon\Play.png" />
+    <Content Include="Resources\icon\Playback.png" />
+    <Content Include="Resources\icon\Previous record.png" />
+    <Content Include="Resources\icon\Previous.png" />
+    <Content Include="Resources\icon\Print.png" />
+    <Content Include="Resources\icon\Problem.png" />
+    <Content Include="Resources\icon\Question.png" />
+    <Content Include="Resources\icon\Radiation.png" />
+    <Content Include="Resources\icon\Raise.png" />
+    <Content Include="Resources\icon\Record.png" />
+    <Content Include="Resources\icon\Red bookmark.png" />
+    <Content Include="Resources\icon\Red mark.png" />
+    <Content Include="Resources\icon\Red pin.png" />
+    <Content Include="Resources\icon\Red star.png" />
+    <Content Include="Resources\icon\Red tag.png" />
+    <Content Include="Resources\icon\Redo.png" />
+    <Content Include="Resources\icon\Refresh.png" />
+    <Content Include="Resources\icon\Remove.png" />
+    <Content Include="Resources\icon\Repair.png" />
+    <Content Include="Resources\icon\Report.png" />
+    <Content Include="Resources\icon\Retort.png" />
+    <Content Include="Resources\icon\Rewind.png" />
+    <Content Include="Resources\icon\Sad.png" />
+    <Content Include="Resources\icon\Save.png" />
+    <Content Include="Resources\icon\Schedule.png" />
+    <Content Include="Resources\icon\Script.png" />
+    <Content Include="Resources\icon\Search.png" />
+    <Content Include="Resources\icon\Shield.png" />
+    <Content Include="Resources\icon\Shopping cart.png" />
+    <Content Include="Resources\icon\Silence.png" />
+    <Content Include="Resources\icon\Smile.png" />
+    <Content Include="Resources\icon\Sound.png" />
+    <Content Include="Resources\icon\Stock graph.png" />
+    <Content Include="Resources\icon\Stop sign.png" />
+    <Content Include="Resources\icon\Stop.png" />
+    <Content Include="Resources\icon\Stopwatch.png" />
+    <Content Include="Resources\icon\Sum.png" />
+    <Content Include="Resources\icon\Sync.png" />
+    <Content Include="Resources\icon\Table.png" />
+    <Content Include="Resources\icon\Target.png" />
+    <Content Include="Resources\icon\Taxi.png" />
+    <Content Include="Resources\icon\Terminate.png" />
+    <Content Include="Resources\icon\Text preview.png" />
+    <Content Include="Resources\icon\Text.png" />
+    <Content Include="Resources\icon\Thumbs down.png" />
+    <Content Include="Resources\icon\Thumbs up.png" />
+    <Content Include="Resources\icon\Toolbox.png" />
+    <Content Include="Resources\icon\Top.png" />
+    <Content Include="Resources\icon\Trackback.png" />
+    <Content Include="Resources\icon\Trash.png" />
+    <Content Include="Resources\icon\Tune.png" />
+    <Content Include="Resources\icon\Turn off.png" />
+    <Content Include="Resources\icon\Twitter.png" />
+    <Content Include="Resources\icon\Undo.png" />
+    <Content Include="Resources\icon\Unlock.png" />
+    <Content Include="Resources\icon\Up-down.png" />
+    <Content Include="Resources\icon\Up.png" />
+    <Content Include="Resources\icon\Update.png" />
+    <Content Include="Resources\icon\Upload.png" />
+    <Content Include="Resources\icon\User group.png" />
+    <Content Include="Resources\icon\View.png" />
+    <Content Include="Resources\icon\Volume.png" />
+    <Content Include="Resources\icon\Wallet.png" />
+    <Content Include="Resources\icon\Warning.png" />
+    <Content Include="Resources\icon\Wrench.png" />
+    <Content Include="Resources\icon\Yellow bookmark.png" />
+    <Content Include="Resources\icon\Yellow pin.png" />
+    <Content Include="Resources\icon\Yellow tag.png" />
+    <Content Include="Resources\icon\Yes.png" />
+    <Content Include="Resources\icon\Zoom.png" />
+    <Content Include="Resources\LOGO BIG INTERSAVEGUARD GROUP.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Action\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
