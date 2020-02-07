@@ -17,7 +17,7 @@ namespace BIG.DataService
             {
                 using (var ctx = new BIG_DBEntities())
                 {
-                    result = ctx.Employees.Take(200).OrderByDescending(o => o.EMP_ID).ToList();
+                    result = ctx.Employees.OrderByDescending(o => o.EMP_ID).ToList();
 
                 }
                 return result;
@@ -183,7 +183,7 @@ namespace BIG.DataService
             {
                 using (var ctx = new BIG_DBEntities())
                 {
-                    var tempemp = "BIGS" + DateTime.Now.ToString("yyMMdd");
+                    var tempemp = "BIGR" + DateTime.Now.ToString("yyMMdd");
                     var empctx = ctx.Employees.Where(x => x.EMP_ID.Contains(tempemp)).ToList();
                     if (empctx != null)
                     {
